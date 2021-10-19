@@ -1,17 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <UserProfile :user="user" />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
+import UserProfile from "@/components/UserProfile.vue";
 
 export default defineComponent({
   name: "App",
   components: {
-    HelloWorld,
+    UserProfile
   },
+  data() {
+    return {
+      user: {
+        avatar: "https://randomuser.me/api/portraits/men/64.jpg",
+        nickname: "Mauris",
+        firstname: "Nikita",
+        lastname: "Hozya"
+      }
+    };
+  }
 });
 </script>
 
