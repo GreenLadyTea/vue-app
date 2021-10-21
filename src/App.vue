@@ -1,5 +1,5 @@
 <template>
-  <UserProfile :user="user" />
+  <UserProfile v-for="user in users" :user="user" :key="user" />
 </template>
 
 <script lang="ts">
@@ -13,13 +13,13 @@ export default defineComponent({
   },
   data() {
     return {
-      user: {
-        avatar: "https://randomuser.me/api/portraits/men/64.jpg",
-        nickname: "Mauris",
-        firstname: "Nikita",
-        lastname: "Hozya"
-      }
+      users: []
     };
+  },
+  async created() {
+    const res = await fetch("https://randomuser.me/api/?results=10");
+    const json = await res.json();
+    this.users = await json.results;
   }
 });
 </script>

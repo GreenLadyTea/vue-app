@@ -1,10 +1,19 @@
 import { createStore, MutationTree } from "vuex";
 
+export type Address = {
+  country: string;
+  state: string;
+  city: string;
+  street: string;
+  house: string;
+  postcode: string;
+};
+
 export type User = {
   nickname: string;
   firstname: string;
   lastname: string;
-  address: string;
+  address: Address;
   avatar: string;
   email: string;
   phone: string;
@@ -26,11 +35,10 @@ export const mutations: MutationTree<StateType> = {
 
 //https://randomuser.me/documentation
 
-const store = createStore({
+export const storeConfig = {
   state: initialState,
   mutations: {},
-  actions: {},
-  modules: {}
-});
+  actions: {}
+};
 
-export default store;
+export default createStore(storeConfig);
