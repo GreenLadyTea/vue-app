@@ -1,26 +1,12 @@
 <template>
-  <UserProfile v-for="user in users" :user="user" :key="user" />
+  <router-view></router-view>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import UserProfile from "@/components/UserProfile.vue";
 
 export default defineComponent({
-  name: "App",
-  components: {
-    UserProfile
-  },
-  data() {
-    return {
-      users: []
-    };
-  },
-  async created() {
-    const res = await fetch("https://randomuser.me/api/?results=10");
-    const json = await res.json();
-    this.users = await json.results;
-  }
+  name: "App"
 });
 </script>
 

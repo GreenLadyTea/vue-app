@@ -1,14 +1,19 @@
 <template>
   <div>
-    <img alt="Avatar" :src="user.picture.large" />
-    <div>{{ user.login.username }}</div>
-    <div>{{ user.name.first }} {{ user.name.last}}</div>
-    <div>{{ user.location.country }}, {{ user.location.state }}, <br />
-      {{ user.location.city }}, {{ user.location.street.name }},
-      {{ user.location.street.number }}, <br /> {{ user.location.postcode }}
-    </div>
-    <div>{{ user.email }}</div>
-    <div>{{ user.phone }}</div>
+    <!--    <img alt="Avatar" :src="user.picture.large" />
+    <div>Имя пользователя: {{ user.login.username }}</div>
+    <div>Пол: {{ user.gender }}</div>
+    <div>Имя: {{ user.name.first }}</div>
+    <div>Фамилия: {{ user.name.last }}</div>
+    <div>Страна: {{ user.location.country }}</div>
+    <div>Регион: {{ user.location.state }}</div>
+    <div>Город: {{ user.location.city }}</div>
+    <div>Улица: {{ user.location.street.name }}</div>
+    <div>Дом: {{ user.location.street.number }}</div>
+    <div>Почтовый индекс: {{ user.location.postcode }}</div>
+    <div>Электронная почта: {{ user.email }}</div>
+    <div>Телефон: {{ user.phone }}</div>-->
+    {{ $route.params.id }}
   </div>
 </template>
 
@@ -16,12 +21,6 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "UserProfile",
-  props: {
-    user: {
-      type: Object,
-      required: true
-    }
-  }
+  name: "UserProfile"
 });
 </script>

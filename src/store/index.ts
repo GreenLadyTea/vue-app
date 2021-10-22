@@ -1,4 +1,4 @@
-import { createStore, MutationTree } from "vuex";
+import { createStore, GetterTree } from "vuex";
 
 export type Address = {
   country: string;
@@ -27,16 +27,16 @@ export const initialState: StateType = {
   users: []
 };
 
-export const mutations: MutationTree<StateType> = {
-  addUser: (state: StateType, user: User): void => {
-    state.users.push(user);
+export const getters: GetterTree<StateType, StateType> = {
+  users: (state): Array<User> => state.users,
+  user: (state) => (username: string) => {
+    return state.users.find((user) => user.nickname === username);
   }
 };
 
-//https://randomuser.me/documentation
-
 export const storeConfig = {
   state: initialState,
+  getters,
   mutations: {},
   actions: {}
 };
